@@ -16,7 +16,6 @@ for i=1:dim
         w(i, j) = 0;        
         K0 = [K0; reshape( w', 1, newdim )];
        % imagesc(1-w), title(['i = ',num2str(i),' j = ',num2str(j)]), colormap gray;pause
-        %disp(w), k=k+1;disp(K0(k, :)), pause
     end
 end
 if report

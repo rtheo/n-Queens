@@ -9,7 +9,7 @@ m3 = fliplr(m1);
 m4 = fliplr(m2);
 for i=1:dim
     for j=1:dim
-        w = zeros(dim, dim); 
+        w = zeros(dim); 
         w(i, :) = 1; w(:, j) = 1;
         w = w + diag( ones( m2(i, j), 1 ), m1(i, j) );
         w = w + fliplr( diag( ones( m4(i, j), 1), m3(i, j) ) );

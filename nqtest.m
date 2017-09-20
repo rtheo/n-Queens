@@ -1,7 +1,7 @@
 function s = nqtest( n, m, usage)
 if nargin<3, usage = 0; end
 k = kernel(n);flag = 0;
-b = nchoosek( 1:n^2, m );
+b = nchoosek( 1:m^2, n );
 for i=1:size(b,1)
     res = and( ~k( b(i, 1), :), ~k( b(i, 2), :) );
     for j=3:size(b,2)

@@ -1,18 +1,17 @@
-function w = nqsolve( d, imin, imax )
+function w = nqsolve( d, imin, imax, graf )
 % Full n-Queen solver for [imin,...,imax] interval of 1D reduced chessboard
 % d --> board dimension
 % imin, imax --> min. and max. limits of interger interval (search space)
 clc, close all
+if nargin<4, graf=0; end
 K = kernel( d );
 d2 = d^2; n = 1; 
 for i=imin:imax
-    str = fliplr(dec2bin( i, d2 ) );
-    s =[]; for j=1:d2, s = [s, str2num( str( j ) ) ];end
-    Ks = repmat(s', 1, 16); Kf = Ks.*K; % componentwise filtering of queens positions!
-    flag = ( sum( Kf*s' ) == 0 );
+    str = fliplr(de2bi( i, d2 ) );
+    flag = ( s*( Kf*s' ) == 0 );
     w( sum(s), n ) = flag; n = n + 1; %classify result with binary digit sum
     if flag 
-        imagesc( 1 - reshape(s, 4, 4) ), colormap gray, pause(0.1) 
+        if graf, imagesc( 1 - reshape(s, d, d) ), colormap gray, pause(0.1), end 
         disp( ['n-queens: ' num2str( sum(s) ), ', board index: ', num2str(i) ] ) 
     end
 end

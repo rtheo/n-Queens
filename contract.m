@@ -9,5 +9,5 @@ if flag,
 end 
 kk = 1- (kk > 0 ); ss=sum(kk(:));
 [r, c] = find( kk ); rc = [r'; c']; % extract row-col. indices
-
+% add main here %
 end
